@@ -12,8 +12,6 @@ import os
 # Load environment variables from .env file
 load_dotenv()
 
-# Get the OpenAI API key from environment variables
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 
 # Initialize Flask app
@@ -30,12 +28,15 @@ logging.basicConfig(
 )
 
 # Ollama server details
-OLLAMA_SERVER_URL = "http://10.10.14.65:11434"
+OLLAMA_SERVER_URL = os.getenv("OLLAMA_BASE_URL")
+
+# Get the OpenAI API key from environment variables
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 # Define a prompt template for structured data extraction
 prompt_template_text = """
 Extract the following structured financial information from the provided text:
-- Total Revenue
+- Total GAAP Revenue
 - Total Gross Profit
 - Total Net Income (Loss)
 - Total Adjusted EBITDA
@@ -47,7 +48,20 @@ Extract the following structured financial information from the provided text:
 
 Text: {text}
 
-Structured Data in markdown format:
+Structured Data:
+
+### Fourth Quarter 2023 Highlights
+| Metric                    | Q4 2022 (USD)     | Q4 2023 (USD)     | Year-on-Year Growth (%) |
+| **Total GAAP Revenue**    |                   |                   |                         |
+
+### Full Year 2023 Highlights
+| Metric                    | FY 2022 (USD)     | FY 2023 (USD)     | Year-on-Year Growth (%) |
+| **Total GAAP Revenue**    |                   |                   |                         |
+
+### Segment-Specific Revenue and Adjusted EBITDA for Full Year 2023
+| Segment                     | Revenue (USD)      | Adjusted EBITDA (USD) |
+| **E-commerce**              |                    |                       |
+
 """
 
 def extract_text_from_pdf(pdf_file, from_page, to_page):
