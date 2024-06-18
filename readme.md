@@ -1,6 +1,6 @@
 # AI PDF Extractor
 
-This project is a Flask-based web application that allows users to upload PDF files, extract financial information from specific pages, and process the text using either OpenAI's GPT-3.5-turbo model or an Ollama server. The extracted information is returned as structured data in JSON format.
+This project is a Flask-based web application that allows users to upload PDF files, extract financial information from specific pages, and process the text using either OpenAI's GPT model or an Ollama server. The extracted information is returned as structured data in JSON format.
 
 ## Features
 
@@ -22,8 +22,8 @@ This project is a Flask-based web application that allows users to upload PDF fi
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/yourusername/flask_pdf_extractor.git
-    cd flask_pdf_extractor
+    git clone https://github.com/hapodiv/ai-pdf-extractor.git
+    cd ai-pdf-extractor
     ```
 
 2. **Create and activate a virtual environment:**
@@ -84,9 +84,8 @@ The application logs detailed information to `app.log` and the console. This inc
 
 ## Acknowledgments
 
-- [OpenAI](https://www.openai.com/) for the GPT-3.5-turbo model.
+- [OpenAI](https://www.openai.com/) for the GPT model.
 - [LangChain](https://github.com/langchain/langchain) for the text processing tools.
 - [Flask](https://flask.palletsprojects.com/) for the web framework.
 - [PyMuPDF](https://pymupdf.readthedocs.io/) for PDF text extraction.
 - [python-dotenv](https://github.com/theskumar/python-dotenv) for managing environment variables.
-
